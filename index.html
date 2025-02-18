@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bentley Luxe To-Do - Enhanced Subtasks & Colors</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Slideout Menu for Mobile/Smaller Screens -->
+  <nav class="slideout-menu" id="slideoutMenu">
+    <h2>Main Menu</h2>
+    <button class="menu-btn" id="menuNewListBtn" aria-label="Add New List">➕ Add New List</button>
+    <button class="menu-btn" id="menuCloseBtn" aria-label="Close Menu">✖ Close Menu</button>
+  </nav>
+
+  <!-- MAIN APP CONTAINER -->
+  <div id="appContainer">
+    <!-- HEADER -->
+    <header>
+      <div class="header-left-group">
+        <button class="header-hamburger" id="headerHamburger" aria-label="Open Menu">☰</button>
+        <h1>Bentley Luxe To‑Do</h1>
+      </div>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search tasks..." autocomplete="off" />
+      </div>
+    </header>
+
+    <!-- LAYOUT: Main Content -->
+    <section class="content">
+      <!-- List Selection Section with Select Menus -->
+      <div id="listDisplay">
+        <label for="listSelectMenu">Select List:</label>
+        <select id="listSelectMenu"></select>
+        <label for="sortOrderSelect">Sort by:</label>
+        <select id="sortOrderSelect">
+          <option value="creation">Creation Order</option>
+          <option value="alphabetical">Alphabetical Order</option>
+        </select>
+      </div>
+      <!-- ADD TASK FORM -->
+      <form class="add-task-form" id="addTaskForm">
+        <input type="text" id="taskInput" placeholder="New task..." required />
+        <input type="date" id="dueDateInput" />
+        <button type="submit">Add Task</button>
+      </form>
+      <!-- SORT BUTTONS -->
+      <div class="sort-buttons">
+        <button id="sortAlphaBtn">Sort A‑Z</button>
+        <button id="sortDueBtn">Sort by Due Date</button>
+      </div>
+      <!-- TASK LIST -->
+      <ul class="task-list" id="taskList"></ul>
+    </section>
+  </div>
+
+  <!-- DIALOG: Create New List -->
+  <dialog id="newListDialog" role="dialog" aria-modal="true">
+    <h3>Create New List</h3>
+    <form id="newListForm">
+      <input type="text" id="newListName" placeholder="Enter list name" required />
+      <div class="dialog-buttons">
+        <button type="button" class="cancel-btn" id="cancelListDialogBtn">Cancel</button>
+        <button type="submit" class="confirm-btn">Confirm</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- DIALOG: Delete Confirmation -->
+  <dialog id="deleteDialog" role="dialog" aria-modal="true">
+    <h3>Confirm Deletion</h3>
+    <p id="deleteMsg"></p>
+    <div class="dialog-buttons">
+      <button type="button" class="cancel-btn" id="cancelDeleteBtn">Cancel</button>
+      <button type="button" class="danger-btn" id="confirmDeleteBtn">Delete</button>
+    </div>
+  </dialog>
+  <script src="/script.js"></script>
+</body>
+</html>
